@@ -5,7 +5,10 @@ namespace IdScan.Example.Models;
 public sealed class CreateScanRequest
 {
     [JsonPropertyName("templateCode")]
-    public string TemplateCode { get; set; } = "default";
+    public string? TemplateCode { get; set; }
+
+    [JsonPropertyName("requestedFieldsJson")]
+    public string? RequestedFieldsJson { get; set; }
 
     [JsonPropertyName("languageCode")]
     public string LanguageCode { get; set; } = "nl";
@@ -33,15 +36,7 @@ public sealed class CreateScanRequest
 
     [JsonPropertyName("delivery")]
     public ScanRequestDelivery Delivery { get; set; } = new();
-
-    [JsonPropertyName("templates")]
-    public ScanRequestTemplates Templates { get; set; } = new();
-
-    [JsonPropertyName("metadata")]
-    public Dictionary<string, string> Metadata { get; set; } = new();
-
-    [JsonPropertyName("isTest")]
-    public bool IsTest { get; set; }
+   
 }
 
 public sealed class ScanRequestDelivery
@@ -51,28 +46,4 @@ public sealed class ScanRequestDelivery
 
     [JsonPropertyName("channels")]
     public List<string> Channels { get; set; } = new() { "sms", "email" };
-}
-
-public sealed class ScanRequestTemplates
-{
-    [JsonPropertyName("smsText")]
-    public string SmsText { get; set; } = string.Empty;
-
-    [JsonPropertyName("emailSubject")]
-    public string EmailSubject { get; set; } = string.Empty;
-
-    [JsonPropertyName("emailBody")]
-    public string EmailBody { get; set; } = string.Empty;
-
-    [JsonPropertyName("preformTitle")]
-    public string PreformTitle { get; set; } = string.Empty;
-
-    [JsonPropertyName("preformText")]
-    public string PreformText { get; set; } = string.Empty;
-
-    [JsonPropertyName("afterformTitle")]
-    public string AfterformTitle { get; set; } = string.Empty;
-
-    [JsonPropertyName("afterformText")]
-    public string AfterformText { get; set; } = string.Empty;
 }

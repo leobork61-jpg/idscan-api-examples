@@ -1,0 +1,167 @@
+{
+  "info": {
+    "_postman_id": "5d807a2c-c642-4aee-a6fa-e5c2f26243f8",
+    "name": "IdScan.Api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "6569412"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "scan-request",
+          "item": [
+            {
+              "name": "scan-requests/:id/details",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Api-Key",
+                    "value": "{{apiKey}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/scan-requests/:id/details",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "scan-requests",
+                    ":id",
+                    "details"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "d1238757-ce9a-4ccd-b613-246b90b929d1"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "scan-requests-with-templatecode",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "key": "X-Api-Key",
+                    "value": "{{apiKey}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"languageCode\": \"nl\",\n  \"externalReference\": \"external101010\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"emailAddress\": \"johndoe@test.com\",\n  \"phoneNumber\": \"31612345678\",\n  \"requestType\": \"identity_check\",\n  \"expiryInHours\": 96,\n  \"templateCode\": \"default\",\n  \"delivery\": {\n    \"mode\": \"platform\",\n    \"channels\": [\n      \"sms\",\n      \"email\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/scan-requests",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "scan-requests"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "scan-requests-with-requestfields",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "key": "X-Api-Key",
+                    "value": "{{apiKey}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"languageCode\": \"nl\",\n  \"externalReference\": \"string\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"emailAddress\": \"johndoe@test.com\",\n  \"phoneNumber\": \"31612345678\",\n  \"requestType\": \"identity_check\",\n  \"expiryInHours\": 48,\n  \"delivery\": {\n    \"mode\": \"platform\",\n    \"channels\": [\n      \"sms\",\n      \"email\"\n    ]\n  },\n  \"requestedFieldsJson\": \"{\\\"fields\\\":{\\\"given_names\\\":{\\\"requested\\\":true},\\\"surname\\\":{\\\"requested\\\":true},\\\"document_number\\\":{\\\"requested\\\":true,\\\"masking\\\":\\\"last4_visible\\\"},\\\"country_of_issue\\\":{\\\"requested\\\":true},\\\"photo\\\":{\\\"requested\\\":true},\\\"date_of_expiry\\\":{\\\"requested\\\":true},\\\"date_of_birth\\\":{\\\"requested\\\":true},\\\"nationality\\\":{\\\"requested\\\":true},\\\"mrz_masked_image\\\":{\\\"requested\\\":true}},\\\"checks\\\":{\\\"document_not_expired\\\":true,\\\"nfc_read_success\\\":true,\\\"chip_authentication_success\\\":true,\\\"selfie_check\\\":true,\\\"minimum_age\\\":18}}\",\n  \"checks\": {\n    \"document_not_expired\": true,\n    \"nfc_read_success\": true,\n    \"chip_authentication_success\": true,\n    \"selfie_check\": true,\n    \"minimum_age\": 18\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/scan-requests",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "scan-requests"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    },
+    {
+      "key": "apiKey",
+      "value": ""
+    }
+  ]
+}

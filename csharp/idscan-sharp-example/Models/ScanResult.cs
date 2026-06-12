@@ -62,6 +62,8 @@ public sealed class ScanResult
     [JsonPropertyName("DocumentType")]
     public string DocumentType { get; set; } = string.Empty;
 
+   
+
     public ParsedResultJson? ParseResultJson()
     {
         if (string.IsNullOrWhiteSpace(ResultJson))
@@ -80,6 +82,9 @@ public sealed class ParsedResultJson
 
     [JsonPropertyName("checks")]
     public ResultChecks? Checks { get; set; }
+
+    [JsonPropertyName("compliance")]
+    public ComplianceResult? Compliance { get; set; }
 }
 
 public sealed class ResultFields
