@@ -124,6 +124,19 @@ try
       }
     }
   }
+
+  Console.WriteLine();
+  Console.WriteLine("Downloading signed verification report...");
+
+  var reportPdf = await client.GetVerificationReportPdfAsync(
+      created.ScanRequestId.ToString());
+
+  var reportFileName = $"idscan-report-{created.ScanRequestId}.pdf";
+
+  await File.WriteAllBytesAsync(reportFileName, reportPdf);
+
+  Console.WriteLine($"Report saved to: {Path.GetFullPath(reportFileName)}");
+  Console.WriteLine("The PDF report can be verified in Adobe Reader.");
 }
 catch (HttpRequestException ex)
 {

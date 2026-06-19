@@ -44,6 +44,37 @@
               "response": []
             },
             {
+              "name": "scan-requests/:id/report",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Api-Key",
+                    "value": "{{apiKey}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/scan-requests/:id/report.pdf",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "scan-requests",
+                    ":id",
+                    "report.pdf"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "d1238757-ce9a-4ccd-b613-246b90b929d1"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
               "name": "scan-requests-with-templatecode",
               "request": {
                 "method": "POST",
@@ -158,10 +189,6 @@
     {
       "key": "baseUrl",
       "value": "/"
-    },
-    {
-      "key": "apiKey",
-      "value": ""
     }
   ]
 }
